@@ -22,18 +22,24 @@ public class Main
 	 */
 	public static void main(String[] args) throws IOException
 	{
-		Matrix matrix = new Matrix(9, 7);
+		Matrix matrix = new Matrix(10, 10);
 		matrix.readInputFile(new File(args[0]));
 		
 		List<Operation> ops = new ArrayList<Operation>();
+		long start = System.currentTimeMillis();
 		matrix.move(Integer.parseInt(args[1]), ops);
+		long end = System.currentTimeMillis();
 		if(ops.isEmpty())
 		{
-			System.err.println("Failed to get the solution for moveing box.");
+			System.err.println("Failed to get the solution for " + args[0]);
 		}
-		for(Operation opr:ops)
+		else
 		{
-			System.out.println(opr);
+			System.out.println("Cost " + (end-start) + "ms to get the solution for " + args[0]);
+			for(Operation opr:ops)
+			{
+				System.out.println(opr);
+			}
 		}
 	}
 	
