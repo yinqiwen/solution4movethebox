@@ -253,7 +253,7 @@ public class Matrix
 	
 	private boolean moveRight(int[][] boxes, int x, int y)
 	{
-		if (x < 0)
+		if (x < 0 || x >= (maxColumn-1))
 		{
 			return false;
 		}
